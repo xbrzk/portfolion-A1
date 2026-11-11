@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080a09" />
+  <meta name="description" content="Xbrzki — Tech Enthusiast and Software Engineer portfolio recreation for learning." />
+  <title> Xbrzki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800;900&family=Caveat:wght@500;600&family=Caveat+Brush&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <script type="importmap">
+  {"imports":{
+    "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+    "chess.js":"https://cdn.jsdelivr.net/npm/chess.js@1.0.0/+esm"}}
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chess.css" />
+  <link rel="stylesheet" href="css/horse.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress"><span id="progressBar"></span></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Home">
+      <img src="assets/img/logo.png" alt="Logo" width="256" height="256">
+      <span class="brand-text" data-site-domain>xbrzki<i>.id</i></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#works">Works</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="motion-toggle" id="motionToggle" type="button"><span class="pause-mark">Ⅱ</span><span id="motionLabel">Motion on</span></button>
+      <a class="talk-link" href="#contact">Let's talk <span>↗</span></a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero section is-loading" id="home">
+      <div class="hero-meta">
+        <div><span>FULL-STACK DEVELOPER JUNIOR</span><br>SOFTWARE ENGINEER</div>
+        <div class="availability"><b></b> AVAILABLE FOR COLLABORATION</div>
+      </div>
+
+      <div class="hero-word" aria-hidden="true">
+        <svg viewBox="0 0 1000 300" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="wordGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="300">
+              <stop offset="0"   stop-color="#188541"/>
+              <stop offset=".24" stop-color="#166f37"/>
+              <stop offset=".45" stop-color="#145d2f"/>
+              <stop offset=".89" stop-color="#11361e"/>
+              <stop offset="1"   stop-color="#102e1a"/>
+            </linearGradient>
+          </defs>
+          <text x="0" y="0" fill="url(#wordGrad)" stroke="url(#wordGrad)">PORTFOLIO</text>
+        </svg>
+      </div>
+
+      <div class="hero-intro">
+        <span class="script">Hello, I'm</span>
+        <h1><b data-site-name>Kiki</b><span>.</span></h1>
+        <h2>Tech Enthusiast	<br>JUNIOR DEVELOPER</h2>
+        <p>Engineering modern, scalable systems.<br>From resilient backends and automated<br>bots to performant interfaces.</p>
+        <a class="primary-button" href="#works">Explore my work <span>↓</span></a>
+        <div class="location"><b>⌖</b> JAMBI, INDONESIA</div>
+      </div>
+
+      <div class="hero-portrait-wrap">
+        <img class="hero-portrait" src="assets/img/hero-portrait.png" alt="Portrait cutout from the supplied ISKIIE reference screenshot">
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-note"><span class="spark">✳</span><p>Clean code.<br>Scalable architecture.</p></div>
+        <div class="stat"><strong data-count="5">5<span>+</span></strong><small>YEARS EXPERIENCE<br>SOFTWARE DEV</small></div>
+        <div class="stat"><strong data-count="21">21<span>+</span></strong><small>SYSTEMS &<br>APPLICATIONS</small></div>
+        <div class="stat"><strong data-count="7">7<span>+</span></strong><small>TECH STACK <a href="#tech">↗</a></small></div>
+        <a class="cv-link" href="#contact"><span>♧</span> DOWNLOAD CV</a>
+      </aside>
+
+      <div class="hero-bottom">
+        <a href="#contact">
+          <span class="github-icon"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></span>
+          GITHUB PROFILE <small>@xbrzki</small>
+        </a>
+        <a href="#works" class="scroll-discover">SCROLL TO DISCOVER <span>↓</span></a>
+        <span>SELECTED WORK / 2026 – SEKARANG</span>
+      </div>
+    </section>
+
+    <!-- ================= WORKS ================= -->
+    <section class="works section" id="works">
+      <div class="section-head">
+        <div><label>01 / SELECTED WORK</label><h2>ENGINEERED SOLUTIONS<span>.</span></h2></div>
+        <a class="all-projects" href="#projectGrid">ALL PROJECTS <span>→</span></a>
+      </div>
+
+      <div class="work-tools">
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="ai">AI &amp; Systems</button>
+          <button class="filter" data-filter="enterprise">Enterprise Systems</button>
+          <button class="filter" data-filter="automation">Automation</button>
+          <button class="filter" data-filter="websites">Websites</button>
+          <button class="filter" data-filter="network">Network &amp; Systems</button>
+        </div>
+        <label class="search-box"><span>⌕</span><input id="projectSearch" type="search" placeholder="Search by title..." aria-label="Search by title"></label>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card" data-category="ai" data-title="Ruang 3D AI Agent Digital Twin" data-meta="AI &amp; Systems / 2026">
+          <a href="#project-detail" class="project-image">
+            <img src="assets/img/project-1.jpg" alt="Ruang 3D AI Agent Digital Twin project preview">
+            <span class="image-tag">AI &amp; SYSTEMS</span><span class="image-arrow">↗</span>
+          </a>
+          <div class="project-caption"><strong>01</strong><div><h3>RUANG 3D — AI AGENT DIGITAL TWIN</h3><small>AI &amp; SYSTEMS / 2026</small></div><span>↗</span></div>
+        </article>
+
+        <article class="project-card" data-category="automation" data-title="Engine Pro Social Automation Engine" data-meta="Automation / 2026" data-role="Automation &amp; Daemon Systems Engineer" data-desc="Centralized social automation orchestration suite managing fleet 1,700+ registered accounts across X/Twitter, Facebook, Instagram, Threads, and TikTok. Built automated proxy rotation, task schedulers, auto-post/comment daemons, and concurrency rate limiters." data-link-label="Open Source Link">
+          <a href="#project-detail" class="project-image">
+            <img src="assets/img/project-2.jpg" alt="Engine Pro automation dashboard preview">
+            <span class="image-tag">AUTOMATION</span><span class="image-arrow">↗</span>
+          </a>
+          <div class="project-caption"><strong>02</strong><div><h3>ENGINE PRO — SOCIAL AUTOMATION ENGINE</h3><small>AUTOMATION / 2026</small></div><span>↗</span></div>
+        </article>
+
+        <article class="project-card" data-category="automation" data-title="Expedition Antarctica Autonomous Bot" data-meta="Automation / 2024" data-role="Game Logic &amp; Web Key Developer" data-desc="Autonomous pathfinding state-machine bot Expedition Antarctica featuring automated obstacle navigation (Auto-Summit) paired with modern web key licensing architecture offering instant 24-hour token verification without account registration." data-link-label="Visit Live Website">
+          <a href="#project-detail" class="project-image">
+            <img src="assets/img/project-3.jpg" alt="Expedition Antarctica autonomous bot project preview">
+            <span class="image-tag">AUTOMATION</span><span class="image-arrow">↗</span>
+          </a>
+          <div class="project-caption"><strong>03</strong><div><h3>EXPEDITION ANTARCTICA — AUTONOMOUS BOT &amp; KEY API</h3><small>AUTOMATION / 2024</small></div><span>↗</span></div>
+        </article>
+
+        <article class="project-card" data-category="automation" data-title="Roblox Parallel Mass-Report Puppeteer Engine" data-meta="Automation / 2025" data-role="Bot &amp; Automation Engineer" data-desc="High-concurrency headless browser automation system built Node.js and Puppeteer. Executes parallel multi-tab worker processes submit targeted compliance reports simultaneously isolated browser contexts, session rotation, and terminal logs." data-link-label="Open Source Link" data-video="assets/vidio/roblox_report_automation.mp4">
+          <a href="#project-detail" class="project-image">
+            <video src="assets/vidio/roblox_report_automation.mp4#t=0.5" muted loop playsinline preload="metadata" aria-label="Roblox Parallel Mass-Report Puppeteer Engine preview"></video>
+            <span class="image-tag">AUTOMATION</span><span class="image-arrow">↗</span>
+          </a>
+          <div class="project-caption"><strong>04</strong><div><h3>ROBLOX PARALLEL MASS-REPORT PUPPETEER ENGINE</h3><small>AUTOMATION / 2025</small></div><span>↗</span></div>
+        </article>
+
+        <p class="no-results" id="noResults">No projects match your search.</p>
+      </div>
+
+      <div class="tech-strip" id="tech">
+        <div class="tech-top">
+          <span>TECH STACK &amp;<br>ECOSYSTEM.</span>
+          <div>
+            <button id="viewTech">VIEW ALL (18)　＋</button>
+            <button id="pauseTech" aria-label="Pause technology carousel">Ⅱ</button>
+            <button id="techPrev" aria-label="Previous technologies">‹</button>
+            <button id="techNext" aria-label="Next technologies">›</button>
+          </div>
+        </div>
+        <div class="tech-track-wrap"><div class="tech-track" id="techTrack"><span class="tech-icon"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="" loading="lazy"><small>TYPESCRIPT</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" loading="lazy"><small>JAVASCRIPT</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="" loading="lazy"><small>PYTHON</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/go/00ADD8" alt="" loading="lazy"><small>GO</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="" loading="lazy"><small>FIREBASE</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="" loading="lazy"><small>NODE.JS</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="" loading="lazy"><small>REACT</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" alt="" loading="lazy"><small>NEXT.JS</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="" loading="lazy"><small>POSTGRESQL</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/redis/FF4438" alt="" loading="lazy"><small>REDIS</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="" loading="lazy"><small>MONGODB</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/sqlite/0F80CC" alt="" loading="lazy"><small>SQLITE</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="" loading="lazy"><small>DOCKER</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/git/F05032" alt="" loading="lazy"><small>GIT</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/linux/FCC624" alt="" loading="lazy"><small>LINUX</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/tailwindcss/38BDF8" alt="" loading="lazy"><small>TAILWIND CSS</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="" loading="lazy"><small>CLOUDFLARE</small></span><span class="tech-icon"><img src="https://cdn.simpleicons.org/graphql/E10098" alt="" loading="lazy"><small>GRAPHQL</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="" loading="lazy"><small>TYPESCRIPT</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" loading="lazy"><small>JAVASCRIPT</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/python/3776AB" alt="" loading="lazy"><small>PYTHON</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/go/00ADD8" alt="" loading="lazy"><small>GO</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="" loading="lazy"><small>FIREBASE</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="" loading="lazy"><small>NODE.JS</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="" loading="lazy"><small>REACT</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" alt="" loading="lazy"><small>NEXT.JS</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="" loading="lazy"><small>POSTGRESQL</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/redis/FF4438" alt="" loading="lazy"><small>REDIS</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="" loading="lazy"><small>MONGODB</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/sqlite/0F80CC" alt="" loading="lazy"><small>SQLITE</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="" loading="lazy"><small>DOCKER</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/git/F05032" alt="" loading="lazy"><small>GIT</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/linux/FCC624" alt="" loading="lazy"><small>LINUX</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/tailwindcss/38BDF8" alt="" loading="lazy"><small>TAILWIND CSS</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="" loading="lazy"><small>CLOUDFLARE</small></span><span class="tech-icon dup" aria-hidden="true"><img src="https://cdn.simpleicons.org/graphql/E10098" alt="" loading="lazy"><small>GRAPHQL</small></span></div></div>
+      </div>
+    </section>
+
+    <!-- ================= CREDENTIALS ================= -->
+    <section class="credentials section" id="credentials">
+      <div class="credential-left">
+        <label>PROFESSIONAL CREDENTIALS</label>
+        <h2>STRATEGIC LOGIC.<br><em>PROVEN COMPETENCY.</em></h2>
+        <div class="verified"><span class="laurel">❧</span><strong id="certCount" data-total="7">7</strong><span class="laurel mirror">❧</span></div>
+        <h4>VERIFIED CREDENTIALS</h4>
+        <p>Proven foundations in information technology and data management.<br>Focused on building clean web architectures and strategic executions.</p>
+        <a href="#contact" class="text-link">DOWNLOAD RESUME / CV　↗</a>
+      </div>
+
+      <div class="credential-list">
+        <div class="credential-list-head"><span>LICENSES &amp; CERTIFICATIONS</span><span>2023 – 2026</span></div>
+        <a class="credential-row" href="assets/sertifikat/cisco-essentials.jpg" data-cert="assets/sertifikat/cisco-essentials.jpg"><small>01</small><div><h3>Cisco IT Essentials</h3><p>Cisco Networking Academy. Certificate of Completion</p></div><strong>2025</strong><span>↗</span></a>
+        <a class="credential-row" href="assets/sertifikat/futsal-2024.jpg" data-cert="assets/sertifikat/futsal-2024.jpg"><small>02</small><div><h3>1st Place — Futsal Competition</h3><p>RT 50 (Dolaygan) · Jambi Selatan</p></div><strong>2024</strong><span>↗</span></a>
+        <a class="credential-row" href="assets/sertifikat/catur-agripolyfest.jpg" data-cert="assets/sertifikat/catur-agripolyfest.jpg"><small>03</small><div><h3>3rd Place — Chess Competition</h3><p>AGRIPOLYFEST · Politeknik Pembangunan Pertanian Jambi</p></div><strong>2023</strong><span>↗</span></a>
+        <a class="credential-row" href="assets/sertifikat/catur-online.jpg" data-cert="assets/sertifikat/catur-online.jpg"><small>04</small><div><h3>2nd Place — Online Chess Tournament</h3><p>Intermediate Category · Kota Jambi</p></div><strong>2025</strong><span>↗</span></a>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCTION ================= -->
+    <section class="production section" id="production">
+      <div class="production-copy">
+        <label>FROM CODE TO PRODUCTION</label>
+        <h2>EVERY MOVE<br><em>HAS A<br>PURPOSE.</em></h2>
+        <p>Every creation begins with a thought. Every decision shapes the future, and every detail has a purpose. Like chess, success is not about moving first, but knowing what comes next.</p>
+        <small>FULL-STACK &amp; AUTOMATION PIPELINE / 2026<br>NODE.JS · TELEGRAM BOTS · CLOUD DEPLOYMENT</small>
+      </div>
+
+      <div class="compare-area chess-area">
+        <div id="chess-hero"></div>
+      </div>
+
+      <!-- Penampung tersembunyi: supaya main.js (slider lama) tidak error karena elemennya hilang -->
+      <div class="compare-stub" hidden aria-hidden="true">
+        <div class="compare-frame" id="compareFrame"><div class="compare-live"></div><div class="compare-divider" id="compareDivider"><button tabindex="-1" aria-hidden="true"></button></div></div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="about section" id="about">
+      <div class="about-heading">
+        <div><label>02 / BEHIND THE CODE</label><h2>NOT JUST CODE.<br>ENGINEERED WITH <em>PURPOSE.</em></h2></div>
+        <p>I am <span data-site-name>Kiki</span>, a Full-Stack Developer based in JAMBI, Indonesia. With over 5 years of software engineering experience, I specialize in building scalable web architectures, resilient backend microservices, robust database systems, and performant user interfaces.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="education panel">
+          <h3>EDUCATION &amp; EXPERTISE</h3>
+          <label>ACADEMIC BACKGROUND</label>
+          <div class="edu-item"><b>Universitas Terbuka <span>2025 – Sekaran</span></b><p>Bachelor Of Information Systems (S.Si) · GPA: - / 4.00 · JAMBI, Indonesia</p></div>
+          <div class="edu-item"><b>Full-Stack &amp; Systems Engineering <span>2021 – Present</span></b><p>Scalable web applications, microservices architecture, database design &amp; Linux cloud infrastructure.</p></div>
+          <div class="edu-item"><b>Continuous Research &amp; Development</b><p>Distributed systems · High-concurrency APIs · Containerization &amp; DevOps · Automation</p></div>
+          <label class="toolkit-label">DEVELOPER TOOLKIT</label>
+          <div class="tags">
+            <span>Full-Stack Dev</span><span>Bot &amp; Automation</span><span>REST &amp; GraphQL API</span><span>Database Architecture</span>
+            <span>Web Scraping / OSINT</span><span>Docker &amp; Linux</span><span>Microservices</span><span>Cloudflare &amp; Security</span>
+          </div>
+          <div class="mini-logos">
+            <img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="Node.js" loading="lazy">
+            <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" loading="lazy">
+            <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" loading="lazy">
+            <img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux" loading="lazy">
+            <img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" loading="lazy">
+            <img src="https://cdn.simpleicons.org/graphql/E10098" alt="GraphQL" loading="lazy">
+          </div>
+        </div>
+
+        <div class="process panel">
+          <h3>FROM ARCHITECTURE TO DEPLOYMENT</h3>
+          <div class="process-list">
+            <span class="process-track" aria-hidden="true"></span>
+            <span class="process-fill" aria-hidden="true"></span>
+            <div><strong>01</strong><i></i><section><b>DISCOVERY &amp; SCOPE</b><p>Analyzing business requirements, architectural constraints, data flows, and performance benchmarks.</p></section></div>
+            <div><strong>02</strong><i></i><section><b>SYSTEM ARCHITECTURE</b><p>Designing schema models, API contracts, infrastructure blueprints, and selecting the optimal stack.</p></section></div>
+            <div><strong>03</strong><i></i><section><b>ENGINEERING &amp; TESTING</b><p>Writing clean, scalable code with strict type-safety, comprehensive error handling, and optimized queries.</p></section></div>
+            <div><strong>04</strong><i></i><section><b>DEPLOY &amp; SCALE</b><p>Container orchestration, automated CI/CD pipelines, edge caching, and live server observability.</p></section></div>
+          </div>
+        </div>
+
+        <aside class="quote-panel">
+          <div class="quote-mark">“</div>
+          <p class="q-d">Clean architecture,<br>automated flows,<br>and systems built<br>to scale.</p>
+          <p class="q-m" aria-hidden="true"><span>Clean</span><span>architecture, automated</span><span>flows,</span><span class="q-hl">and systems built to scale.</span></p>
+          <span class="signature" data-site-name>Kiki</span>
+          <small>CODE IS POETRY.<br>ARCHITECTURE IS ART.</small>
+          <b>✳</b>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="experience section" id="experience">
+      <div class="experience-heading">
+        <div><label>03 / CAREER &amp; ENGINEERING PATH</label><h2>BUILD. AUTOMATE. SCALE<span>.</span></h2></div>
+        <a href="#contact">RESUME　⇩</a>
+      </div>
+
+      <div class="experience-grid">
+        <div class="career-list">
+          <article class="career-item open">
+            <div class="career-date">2024 – PRESENT</div>
+            <button class="career-toggle" aria-expanded="true"><span><b>Full-Stack &amp; Automation Developer</b><small>Independent / Personal Projects</small></span><i>−</i></button>
+            <div class="career-detail"><p>Turning logic into software that runs. I build web applications, bots, and automation tools with JavaScript and Node.js, with a focus on clean structure, reliable workflows, and getting a little better with every release.</p></div>
+          </article>
+          <article class="career-item">
+            <div class="career-date">2025 – PRESENT</div>
+            <button class="career-toggle" aria-expanded="false"><span><b>Bachelor of Information Systems</b><small>Universitas Terbuka · Jambi</small></span><i>＋</i></button>
+            <div class="career-detail"><p>Building the theory behind the code: databases, system analysis, and web development. Self-paced study that I put into practice straight away through real projects.</p></div>
+          </article>
+          <article class="career-item">
+            <div class="career-date">2025</div>
+            <button class="career-toggle" aria-expanded="false"><span><b>Cisco IT Essentials</b><small>Cisco Networking Academy · Certificate of Completion</small></span><i>＋</i></button>
+            <div class="career-detail"><p>Foundations that every system stands on: computer hardware, operating systems, networking basics, and structured troubleshooting.</p></div>
+          </article>
+          <article class="career-item">
+            <div class="career-date">2023 – 2025</div>
+            <button class="career-toggle" aria-expanded="false"><span><b>Competitive Chess &amp; Futsal</b><small>Jambi · 3 podium finishes</small></span><i>＋</i></button>
+            <div class="career-detail"><p>1st place in futsal, 3rd and 2nd place in chess. Reading the board, planning several moves ahead, and working as a team: the same habits I bring to architecture and problem-solving.</p></div>
+          </article>
+        </div>
+
+        <aside class="milestones">
+          <label>SELECTED MILESTONES</label>
+          <h3>BUILT TO RUN.<br><em>READY TO GROW.</em></h3>
+          <a href="#works"><small>01</small><span>Ruang 3D — AI Agent Digital Twin<small>2026</small></span><b>↗</b></a>
+          <a href="#works"><small>02</small><span>Engine Pro — Social Automation Engine<small>2026</small></span><b>↗</b></a>
+          <a href="#works"><small>03</small><span>Roblox Puppeteer Automation Engine<small>2025</small></span><b>↗</b></a>
+          <a href="#works"><small>04</small><span>Expedition Antarctica — Autonomous Bot<small>2024</small></span><b>↗</b></a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact section" id="contact">
+      <div class="contact-grid">
+        <div class="contact-lead">
+          <label>04 / GET IN TOUCH</label>
+          <h2>LET'S WORK<br>TOGETHER<span>.</span></h2>
+          <p>Have a system to build or a workflow to automate?<br>Let's engineer something robust and scalable.</p>
+          <a href="mailto:muhammadrizkyanjani712@gmail.com" class="conversation"><span>↗</span> START A CONVERSATION</a>
+        </div>
+
+        <div class="contact-methods">
+          <a href="tel:+62895408104500">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#16c65d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span><small>PHONE / WHATSAPP</small><b>+62 895-4082-04500</b></span><i>↗</i>
+          </a>
+          <a href="mailto:muhammadrizkyanjani712@gmail.com">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#16c65d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg></span>
+            <span><small>EMAIL</small><b>muhammadrizkyanjani712@gmail.com</b></span><i>↗</i>
+          </a>
+          <a href="https://www.instagram.com/xb.rzki/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noreferrer">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#16c65d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+            <span><small>INSTAGRAM</small><b>xbrzki</b></span><i>↗</i>
+          </a>
+          <div class="contact-place">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#16c65d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span><small>BASED IN</small><b>Jambi, Indonesia</b></span>
+          </div>
+        </div>
+
+        <div class="horse3d" id="horse3d" role="img" aria-label="Kuda api 3D">
+          <canvas></canvas>
+          <img class="horse3d-fallback" alt="Kuda api" hidden>
+        </div>
+      </div>
+
+      <div class="project-brief">
+        <button id="briefToggle" aria-expanded="false"><span>Tell me about your project</span><b>＋</b></button>
+        <div class="brief-content" id="briefContent">
+          <p>Share a few details and open an email draft to start a conversation.</p>
+          <form id="briefForm">
+            <input id="briefName" placeholder="Your name" required>
+            <input id="briefType" placeholder="What are you building?" required>
+            <textarea id="briefMessage" placeholder="A short description..." rows="3"></textarea>
+            <button type="submit">PREPARE EMAIL ↗</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <a class="brand" href="#home" aria-label="Home">
+      <img src="assets/img/logo.png" alt="Logo" width="256" height="256">
+      <span class="brand-text" data-site-domain>xbrzki<i>.id</i></span>
+    </a>
+    <small>© 2026 <span data-site-name>Kiki</span>. ALL RIGHTS RESERVED.</small>
+    <div>
+      <a href="https://linkedin.com" target="_blank" rel="noreferrer">in</a>
+      <a href="#top">↗</a>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL PROYEK ================= -->
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="modal-card">
+      <button id="modalClose" aria-label="Close">×</button>
+      <small class="modal-meta" id="modalMeta">Automation / 2026</small>
+      <div class="modal-media"><img id="modalImg" alt=""><video id="modalVideo" controls playsinline preload="metadata"></video></div>
+      <div class="modal-body">
+        <div class="modal-head">
+          <div><h3 id="modalTitle">PROJECT TITLE</h3><small class="modal-role" id="modalRole"></small></div>
+          <a class="modal-link" id="modalLink" href="#" target="_blank" rel="noreferrer"><span id="modalLinkLabel">Open Source Link</span> <span>↗</span></a>
+        </div>
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL SERTIFIKAT ================= -->
+  <div class="cert-modal" id="certModal" aria-hidden="true">
+    <div class="cert-card" role="dialog" aria-modal="true" aria-labelledby="certTitle">
+      <button class="cert-close" id="certClose" aria-label="Close">×</button>
+      <div class="cert-media">
+        <img id="certImg" alt="">
+        <p class="cert-missing" id="certMissing">Foto sertifikat belum ditemukan. Cek nama file dan folder <code>assets/sertifikat/</code>.</p>
+      </div>
+      <div class="cert-info">
+        <div><h3 id="certTitle"></h3><p id="certSub"></p></div>
+        <strong id="certYear"></strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+    /* PENGATURAN NAMA — ganti di sini saja.
+       Semua tempat bertanda data-site-name ikut berubah otomatis. */
+    window.SITE = {
+      name: "Kiki",          // nama di hero, About, tanda tangan, footer
+      domain: "xbrzki.id"    // tulisan di samping logo (header & footer)
+    };
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/hero.js"></script>
+  <script type="module" src="js/chess.js"></script>
+  <script src="js/horse.js"></script>
+  <script>
+  /* Tombol "Motion on/off" ikut mengatur animasi papan catur */
+  (function () {
+    var b = document.getElementById('motionToggle'), l = document.getElementById('motionLabel');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      setTimeout(function () {
+        var on = /on/i.test(l ? l.textContent : '');
+        window.dispatchEvent(new CustomEvent('xbrzki:motion', { detail: on }));
+      }, 0);
+    });
+  })();
+  </script>
+
+  <script>
+  /* Garis timeline "FROM ARCHITECTURE TO DEPLOYMENT" mengikuti scroll */
+  (function () {
+    var list = document.querySelector('.process-list');
+    if (!list) return;
+    var track = list.querySelector('.process-track');
+    var fill = list.querySelector('.process-fill');
+    var rows = [].slice.call(list.children).filter(function (el) { return el.tagName === 'DIV'; });
+    var nodes = rows.map(function (r) { return r.querySelector('i'); });
+    var ys = [], top = 0, span = 0;
+
+    function measure() {
+      ys = rows.map(function (r, k) {
+        return r.offsetTop + nodes[k].offsetTop + nodes[k].offsetHeight / 2;
+      });
+      top = ys[0];
+      span = ys[ys.length - 1] - ys[0];
+      track.style.top = top + 'px';
+      track.style.height = span + 'px';
+      fill.style.top = top + 'px';
+    }
+
+    function update() {
+      var r = list.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var p = (vh * 0.7 - r.top) / (r.height * 0.9);
+      p = Math.max(0, Math.min(1, p));
+      var h = p * span;
+      fill.style.height = h + 'px';
+      nodes.forEach(function (n, k) {
+        n.classList.toggle('on', h >= ys[k] - top - 1);
+      });
+    }
+
+    var queued = false;
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; update(); });
+    }
+
+    measure();
+    update();
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', function () { measure(); update(); });
+    window.addEventListener('load', function () { measure(); update(); });
+  })();
+  </script>
+
+  <script>
+  /* Modal detail proyek: isi otomatis dari kartu yang diklik */
+  (function () {
+    var modal = document.getElementById('projectModal');
+    if (!modal) return;
+    var $ = function (id) { return document.getElementById(id); };
+    var img = $('modalImg'), vid = $('modalVideo'), title = $('modalTitle'), role = $('modalRole'),
+        desc = $('modalDesc'), link = $('modalLink'), linkLabel = $('modalLinkLabel'),
+        meta = $('modalMeta'), closeBtn = $('modalClose');
+
+    function openFrom(card) {
+      var pic = card.querySelector('.project-image img');
+      var h3 = card.querySelector('h3');
+      var sm = card.querySelector('.project-caption small');
+      var videoSrc = card.getAttribute('data-video');
+
+      if (videoSrc) {
+        img.style.display = 'none';
+        vid.style.display = 'block';
+        vid.src = videoSrc;
+        vid.currentTime = 0;
+        var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {});
+      } else {
+        vid.pause(); vid.removeAttribute('src'); vid.style.display = 'none';
+        img.style.display = 'block';
+        if (pic) { img.src = pic.getAttribute('src'); img.alt = pic.alt || ''; }
+      }
+      if (h3) title.textContent = h3.textContent;
+      meta.textContent = card.getAttribute('data-meta') || (sm ? sm.textContent : '');
+      var r = card.getAttribute('data-role') || '';
+      role.textContent = r; role.style.display = r ? '' : 'none';
+      desc.textContent = card.getAttribute('data-desc') || 'Deskripsi proyek ini belum diisi.';
+      linkLabel.textContent = card.getAttribute('data-link-label') || 'Open Source Link';
+      var url = card.getAttribute('data-link');
+      link.href = url || '#';
+      link.style.display = url ? '' : 'none';
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+    function close() {
+      vid.pause();
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    document.querySelectorAll('.project-card .project-image').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        openFrom(a.closest('.project-card'));
+      });
+      var v = a.querySelector('video');
+      if (v) {
+        a.addEventListener('mouseenter', function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+        a.addEventListener('mouseleave', function () { v.pause(); });
+      }
+    });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+  </script>
+
+  <script>
+  /* Gambar proyek: coba akhiran/ejaan lain otomatis kalau file .jpg tidak ditemukan */
+  (function () {
+    var EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.avif', '.gif', '.bmp', '.jfif', '.JPG', '.JPEG', '.PNG', '.WEBP'];
+    function candidates(src) {
+      var base = src.replace(/\.[a-zA-Z0-9]+$/, '');
+      var bases = [base];
+      if (/project-1$/.test(base)) bases.push(base.replace(/project-1$/, 'projeck-1'));
+      var out = [];
+      bases.forEach(function (b) { EXTS.forEach(function (e) { out.push(b + e); }); });
+      return out.filter(function (c) { return c !== src; });
+    }
+    function fix(img) {
+      if (img.__fixed) return;
+      img.__list = img.__list || candidates(img.getAttribute('src') || '');
+      img.__i = img.__i || 0;
+      if (img.__i >= img.__list.length) { img.__fixed = true; return; }
+      img.src = img.__list[img.__i++];
+    }
+    document.querySelectorAll('img[src^="assets/img/"]').forEach(function (img) {
+      img.addEventListener('error', function () { fix(img); });
+      img.addEventListener('load', function () { img.__fixed = true; });
+      if (img.complete && img.naturalWidth === 0) fix(img);
+    });
+  })();
+  </script>
+
+  <script>
+  /* Sertifikat: klik baris -> foto muncul di pop-up; angka verified diambil dari data-total */
+  (function () {
+    var rows = document.querySelectorAll('.credential-row[data-cert]');
+    var count = document.getElementById('certCount');
+    if (count) count.textContent = count.dataset.total || document.querySelectorAll('.credential-row').length;
+
+    var modal = document.getElementById('certModal');
+    if (!modal || !rows.length) return;
+    var img = document.getElementById('certImg'),
+        missing = document.getElementById('certMissing'),
+        title = document.getElementById('certTitle'),
+        sub = document.getElementById('certSub'),
+        year = document.getElementById('certYear'),
+        closeBtn = document.getElementById('certClose'),
+        lastFocus = null;
+
+    img.addEventListener('load', function () { missing.style.display = 'none'; img.style.display = 'block'; });
+    var EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.avif', '.jfif', '.gif', '.bmp', '.JPG', '.JPEG', '.PNG', '.WEBP'];
+    var list = [], idx = 0;
+    function load(src) {
+      var base = src.replace(/\.[a-zA-Z0-9]+$/, '');
+      list = [src];
+      EXTS.forEach(function (e) { if (base + e !== src) list.push(base + e); });
+      idx = 0;
+      img.src = list[0];
+    }
+    img.addEventListener('error', function () {
+      if (++idx < list.length) { img.src = list[idx]; return; }
+      img.style.display = 'none'; missing.style.display = 'block';
+    });
+
+    function open(row) {
+      lastFocus = row;
+      var h = row.querySelector('h3'), p = row.querySelector('p'), y = row.querySelector('strong');
+      title.textContent = h ? h.textContent : '';
+      sub.textContent = p ? p.textContent : '';
+      year.textContent = y ? y.textContent : '';
+      missing.style.display = 'none';
+      img.style.display = 'block';
+      img.alt = title.textContent;
+      load(row.getAttribute('data-cert'));
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      closeBtn.focus();
+    }
+    function close() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      if (lastFocus) lastFocus.focus();
+    }
+
+    rows.forEach(function (row) {
+      row.addEventListener('click', function (e) { e.preventDefault(); open(row); });
+    });
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('show')) close(); });
+  })();
+  </script>
+  </body>
+</html>

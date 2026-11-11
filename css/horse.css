@@ -1,0 +1,75 @@
+/* =====================================================
+   KUDA API 3D — tanpa bingkai, responsif
+   ===================================================== */
+.horse3d {
+  --horse-aspect: 1.07;
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: var(--horse-aspect);
+  justify-self: center;
+  align-self: center;
+  cursor: grab;
+  touch-action: pan-y;          /* di HP tetap bisa scroll ke atas/bawah */
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.horse3d canvas {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* pendaran hijau di belakang kuda */
+.horse3d::before {
+  content: "";
+  position: absolute;
+  inset: 8% 6%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(22,198,93,.34), rgba(22,198,93,.10) 55%, transparent 75%);
+  filter: blur(18px);
+  animation: horseGlow 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes horseGlow {
+  0%, 100% { opacity: .65; transform: scale(.96); }
+  50%      { opacity: 1;   transform: scale(1.05); }
+}
+
+/* cadangan kalau WebGL tidak tersedia: foto biasa, hitam jadi transparan */
+.horse3d .horse3d-fallback {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  mix-blend-mode: screen;
+}
+.horse3d .horse3d-fallback[hidden] { display: none; }
+.horse3d.no-gl canvas { display: none; }
+.horse3d.no-img::after {
+  content: "Taruh foto kuda di assets/img/kuda-api.jpg";
+  position: absolute; inset: 0; z-index: 2;
+  display: grid; place-items: center; text-align: center;
+  padding: 20px; color: #8fa196; font-size: 12px;
+}
+
+body.motion-off .horse3d::before { animation: none; }
+
+/* tablet */
+@media (max-width: 1050px) {
+  .horse3d { grid-column: 1 / -1; width: 72%; margin: 18px 0 6px; }
+}
+
+/* HP */
+@media (max-width: 760px) {
+  .horse3d { width: 100%; max-width: 420px; margin: 26px auto 10px; }
+}
